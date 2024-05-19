@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+#include <cstdlib>
+#include<iomanip>
+
+int main() {
+
+  double pay; 
+  double hours; 
+  double rate; 
+  double OThours; 
+
+  cout << "Please enter your hourly rate: $"; 
+  cin >> rate; 
+
+
+  cout << "Enter the amount of hours worked for week 1: "; 
+  cin >> hours; 
+
+
+  if(hours <= 40){
+    pay = rate * hours * 0.89; 
+  } 
+  else {
+    OThours = hours - 40;
+
+    hours = 40; //setting max hour counter, 40 
+
+    pay = (OThours * rate * 1.5) + (rate * hours) * 0.89; 
+
+  }
+
+  cout << "Enter the amount of hours worked for week 2: ";
+  cin >> hours;
+
+  if(hours <= 40){
+    pay = pay + (rate * hours) * 0.89; 
+  } 
+  else {
+    OThours = hours - 40;
+
+    hours = 40; //setting max hour counter, 40 
+
+    pay = pay + (OThours * rate * 1.5) + (rate * hours) * 0.89; 
+
+  }
+
+
+  cout << fixed << setprecision(2);
+
+  if(pay > 550){
+  cout << "\nYour check will be worth $" << pay << "!"; }
+
+  else {
+    cout << "\nYour check will only be worth $" << pay << ", consider door dashing lol.";
+  }
+
+  
+}
